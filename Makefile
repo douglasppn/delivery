@@ -25,3 +25,6 @@ test:
 
 run:
 	FLASK_APP=delivery/app.py FLASK_ENV=development flask run
+
+run_p:
+	FLASK_APP=delivery/app.py FLASK_ENV=production flask run

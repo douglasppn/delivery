@@ -1,16 +1,27 @@
 [default]
 DEBUG = false
 FLASK_ADMIN_SWATCH = "united"
+EXTENSIONS = [
+    "delivery.ext.db:init_app",
+    "delivery.ext.auth:init_app",
+    "delivery.ext.admin:init_app",
+    "delivery.ext.cli:init_app",
+    "delivery.ext.site:init_app",
+]
 
 [development]
 DEBUG = true
-SECRET_KEY = '\n\xc2\xc6\xa3p\xc1\x87\xa3[#\xca\xab\x8eDUe'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///delivery.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
 DEBUG_TB_PROFILER_ENABLED = true
 DEBUG_TB_INTERCEPT_REDIRECTS = false
+EXTENSIONS = [
+    "dynaconf_merge",
+    "delivery.ext.toolbar:init_app",
+]
 
 [production]
 DEBUG = false
 SQLALCHEMY_TRACK_MODIFICATIONS = false
+SQLALCHEMY_DATABASE_URI = 'sqlite:///delivery.db'
